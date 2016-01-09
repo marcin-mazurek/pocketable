@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "chai": "^3.4.1",
+    "jasmine-data-provider": "^2.2.0",
     "lodash": "^3.10.1",
     "mocha": "^2.3.4",
     "mocha-traceur": "^2.1.0",

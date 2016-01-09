@@ -18,4 +18,27 @@ describe('TimetableViewModelFactory', () => {
       currentLocation: "Approaching North Acton Junction"
     });
   });
+
+  it('returns an empty array when there is no departures for given platform', () => {
+    const viewModel = TimetableViewModelFactory.createForPlatform(
+      apiResponse, "In-the-middle-of-nowhere-bound - Platform 9 3/4");
+    viewModel.should.deep.equal([]);
+  });
+
+  let invalidParameters = [
+    [null, "platform name"],
+    [{}, "platform name"],
+    [apiResponse, null],
+    [apiResponse, []],
+    [{}, []],
+    [undefined, undefined]
+  ];
+
+  using(invalidParameters, (apiResponse, platformName) => {
+    it('throws an error when invalid parameters given', () => {
+      (() => {
+        TimetableViewModelFactory.createForPlatform(apiResponse, platformName);
+      }).should.throw(/Invalid parameter/);
+    });
+  });
 });
