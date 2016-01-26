@@ -1,15 +1,14 @@
-import TimetableFetcher from '../../app/services/timetable-fetcher';
+import fetchTimetable from '../../app/services/fetch-timetable';
 import successAPIResponseBody from '../fixtures/api-responses/stop-point-490011297S-arrivals';
 import nock from 'nock';
 
 const stopId = '490011297S';
 
-describe('TimetableFetcher', () => {
+describe('fetchTimetable', () => {
   it('fetches timetable for given stop', done => {
     prepareSuccessAPIResponse();
 
-    TimetableFetcher
-      .fetch(stopId)
+    fetchTimetable(stopId)
       .then(response => {
         response.should.deep.equal(successAPIResponseBody);
         done();
@@ -19,15 +18,14 @@ describe('TimetableFetcher', () => {
   it('rejects response when request failed', done => {
     prepareFailAPIResponse();
 
-    TimetableFetcher
-      .fetch(stopId)
+    fetchTimetable(stopId)
       .then(() => {
-          done("Expected promise to be rejected.");
-        },
-        err => {
-          err.message.should.equal('TFL API request failed');
-          done();
-        });
+        done("Expected promise to be rejected.");
+      })
+      .catch(error => {
+        error.message.should.equal('TFL API request failed');
+        done();
+      });
   });
 });
 
