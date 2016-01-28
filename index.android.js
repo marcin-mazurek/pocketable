@@ -1,27 +1,6 @@
-'use strict';
+import React, {AppRegistry, View, Component} from 'react-native';
+import Application from './app/containers/application';
+import fetchTimetables from './app/actions/fetch-timetables';
 
-var React = require('react-native');
-var {
-  AppRegistry,
-  StyleSheet,
-  ProgressBarAndroid,
-  View
-} = React;
-
-var PockeTable = React.createClass({
-  render: function() {
-    return (<View style={styles.container}>
-      <ProgressBarAndroid />
-    </View>)
-  }
-});
-
-var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});
-
-AppRegistry.registerComponent('PockeTable', () => PockeTable);
+AppRegistry.registerComponent('PockeTable', () => Application);
+fetchTimetables();
