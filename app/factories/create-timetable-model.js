@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import moment from 'moment';
 
 export default function(apiResponse, platformName) {
   if (!_.isArray(apiResponse)) {
@@ -8,13 +9,17 @@ export default function(apiResponse, platformName) {
     throw new Error("Invalid parameter - platform name must be non-empty string!");
   }
 
-  const departuresFromGivenPlatform = _.filter(apiResponse, { platformName });
+  const currentDate = moment();
 
-  return departuresFromGivenPlatform.map(departure => {
-    return {
-      towards: departure.towards,
-      expectedArrival: departure.expectedArrival,
-      currentLocation: departure.currentLocation
-    };
-  });
+  return _(apiResponse)
+    .filter({ platformName })
+    .sortBy('expectedArrival')
+    .map(departure => {
+      return {
+        towards: departure.towards,
+        minutesToArrival: moment(departure.expectedArrival).diff(currentDate, 'minutes'),
+        currentLocation: departure.currentLocation
+      };
+    })
+    .value();
 };
