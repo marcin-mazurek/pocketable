@@ -1,11 +1,15 @@
-import React, {View, Component, ViewPagerAndroid} from 'react-native';
-import Timetable from './timetable';
+import React, {View, Component, ViewPagerAndroid, PropTypes} from 'react-native';
+import Stop from './stop';
 import _ from 'lodash';
 
 export default class StopsPager extends Component {
+  static propTypes = {
+    stops: PropTypes.object.isRequired
+  };
+
   render () {
     const stops = _.map(this.props.stops, (timetableData, index) => {
-      return <Timetable {...timetableData} key={`Timetable_${index}`}/>;
+      return <Stop {...timetableData} key={`Timetable_${index}`}/>;
     });
 
     return (
@@ -15,7 +19,3 @@ export default class StopsPager extends Component {
     );
   }
 }
-
-StopsPager.propTypes = {
-  stops: React.PropTypes.object.isRequired
-};
