@@ -9,7 +9,7 @@ var {
 var PockeTable = React.createClass({
   render: function() {
     return (
-      <Text>iOS version not yet available</Text>
+      <Text>iOS version yet available</Text>
     );
   }
 });
