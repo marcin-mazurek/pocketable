@@ -16,3 +16,4 @@ Written in **React Native for Android**. Uses Redux as a data layer library.
 - [ ] Use Flex for centering loading indicator and 'No departures' label
 - [ ] Use Flow
 - [ ] Use async keyword instead of promises
+- [ ] Add an icon
