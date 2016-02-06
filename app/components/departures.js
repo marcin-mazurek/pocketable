@@ -6,7 +6,7 @@ import React, {
   Component,
   ProgressBarAndroid
 } from 'react-native';
-import Departure from './departure';
+import Departure from './departure/departure';
 import fetchTimetables from '../actions/fetch-timetables';
 
 export default class Departures extends Component {
