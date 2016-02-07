@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "mocha ./test/* --compilers js:mocha-traceur --require ./test/support/test-env.js"
+    "test": "mocha ./test/* --compilers js:mocha-traceur --no-colors --require ./test/support/test-env.js"
   },
   "dependencies": {
     "chai": "^3.4.1",
