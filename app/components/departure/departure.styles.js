@@ -9,7 +9,7 @@ export default StyleSheet.create({
     paddingTop: 15,
     paddingBottom: 15,
     borderBottomWidth: 1,
-    borderBottomColor: 'DEDEDE',
+    borderBottomColor: '#DEDEDE',
     flexDirection: 'row'
   },
   leftColumn: {
@@ -21,7 +21,7 @@ export default StyleSheet.create({
   },
   currentLocation: {
     fontSize: 13,
-    color: '999999'
+    color: '#999999'
   },
   minutesToArrival: {
     fontSize: 24,
