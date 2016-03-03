@@ -1,6 +1,4 @@
-import {StyleSheet} from 'react-native';
-
-export default StyleSheet.create({
+export default {
   container: {
     marginLeft: 15,
     marginRight: 15,
@@ -27,4 +25,4 @@ export default StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold'
   }
-});
+};
