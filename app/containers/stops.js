@@ -1,11 +1,10 @@
-import React, {View, Component, ViewPagerAndroid, ProgressBarAndroid} from 'react-native';
-import StopsPager from '../components/stops-pager';
+import React, {Component} from 'react-native';
+import StopList from '../components/stop-list/stop-list';
 import {connect} from 'react-redux/native';
-import _ from 'lodash'
 
 class Stops extends Component {
-  render () {
-    return <StopsPager {...this.props} />;
+  render() {
+    return <StopList {...this.props} />;
   }
 }
 
