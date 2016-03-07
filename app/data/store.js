@@ -1,14 +1,9 @@
 import {createStore} from 'redux';
 import {UPDATE_STOP} from '../actions/action-names';
+import config from '../config';
 import _ from 'lodash';
 
-const initialState = {
-  stops: {
-    '940GZZLUNHT': { name: 'Northolt', line: 'Central line', background: '#E32017' },
-    '940GZZLURGP': { name: `Regent's Park`, line: 'Bakerloo line', background: '#B36305' },
-    '940GZZLUOXC': { name: 'Oxford Circus', line: 'Central line', background: '#E32017' }
-  }
-};
+const initialState = { stops: config.stops };
 
 function reducer(state = initialState, action) {
   switch (action.type) {
