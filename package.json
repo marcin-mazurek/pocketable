@@ -4,23 +4,25 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "mocha ./test/* --compilers js:mocha-traceur --no-colors --require ./test/support/test-env.js"
+    "test": "mocha ./test/* --compilers js:babel-core/register --require ./test/support/test-env.js --no-colors"
   },
-  "dependencies": {
+  "devDependencies": {
+    "babel": "^6.5.2",
     "chai": "^3.4.1",
-    "chai-equal-jsx": "^1.0.9",
+    "core-js": "^2.2.1",
+    "enzyme": "^2.1.0",
     "isomorphic-fetch": "^2.2.1",
     "jasmine-data-provider": "^2.2.0",
     "lodash": "^3.10.1",
     "mocha": "^2.3.4",
-    "mocha-traceur": "^2.1.0",
     "moment": "^2.11.1",
     "nock": "^5.2.1",
-    "react": "^0.14.6",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
     "react-native": "^0.21.0",
+    "react-native-mock": "0.0.7",
     "react-redux": "^3.1.0",
     "redux": "^3.0.5",
-    "sinon": "^1.17.3",
-    "traceur": "0.0.96"
+    "sinon": "^1.17.3"
   }
 }
