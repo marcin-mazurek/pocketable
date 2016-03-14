@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {View, Text} from 'react-native';
 
 export default () => {
   return (
