@@ -11,7 +11,6 @@ Written in **React Native for Android**. Uses Redux as a data layer library.
 ## TODO
 - [ ] Add error handling
 - [ ] Improve API data loading handling
-- [ ] Test components (mock native components)
 - [ ] Use Flow
 - [ ] Use async keyword instead of promises
 - [ ] Add an icon
