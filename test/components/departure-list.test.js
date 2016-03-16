@@ -23,13 +23,11 @@ describe('<DepartureList />', () => {
       ]} />
     );
 
-    const departureList = component.find('View');
-
-    departureList.children().length.should.equal(2);
-    departureList.contains(
+    component.children().should.have.length(2);
+    component.contains(
       <Departure towards="Epping" currentLocation="South Ruislip" minutesToArrival={3} />
     ).should.be.true;
-    departureList.contains(
+    component.contains(
       <Departure towards="Woodford" currentLocation="Rusilip Gardens" minutesToArrival={5} />
     ).should.be.true;
   });
