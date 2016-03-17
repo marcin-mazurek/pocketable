@@ -14,3 +14,5 @@ global.using = require('jasmine-data-provider');
 
 // Node.js polyfill for fetch API available in React Native
 global.fetch = require('isomorphic-fetch');
+
+require("babel-polyfill");
