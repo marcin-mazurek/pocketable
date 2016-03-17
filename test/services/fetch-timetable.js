@@ -1,42 +1,29 @@
 import fetchTimetable from '../../app/services/fetch-timetable';
-import successAPIResponseBody from '../fixtures/api-responses/stop-point-490011297S-arrivals';
 import nock from 'nock';
 
-const stopId = '490011297S';
-
 describe('fetchTimetable', () => {
-  it('fetches timetable for given stop', done => {
-    prepareSuccessAPIResponse();
+  it('fetches timetable for given stop', async () => {
+    const responseBody = { some: 'response_data' };
 
-    fetchTimetable(stopId)
-      .then(response => {
-        response.should.deep.equal(successAPIResponseBody);
-        done();
-      }, done);
+    nock('https://api.tfl.gov.uk')
+      .get(`/StopPoint/12345/Arrivals`)
+      .reply(200, responseBody);
+
+    const response = await fetchTimetable('12345');
+    response.should.deep.equal(responseBody);
   });
 
-  it('rejects response when request failed', done => {
-    prepareFailAPIResponse();
+  it('throws an error when request failed', async () => {
+    nock('https://api.tfl.gov.uk')
+      .get(`/StopPoint/SomeInvalidStop/Arrivals`)
+      .reply(500);
 
-    fetchTimetable(stopId)
-      .then(() => {
-        done("Expected promise to be rejected.");
-      })
-      .catch(error => {
-        error.message.should.equal('TFL API request failed');
-        done();
-      });
+    try {
+      await fetchTimetable('SomeInvalidStop');
+      throw new Error('Expected function to throw an error');
+    }
+    catch (error) {
+      error.message.should.equal('TFL API request failed');
+    }
   });
 });
-
-function prepareSuccessAPIResponse() {
-  nock('https://api.tfl.gov.uk')
-    .get(`/StopPoint/${stopId}/Arrivals`)
-    .reply(200, successAPIResponseBody);
-}
-
-function prepareFailAPIResponse() {
-  nock('https://api.tfl.gov.uk')
-    .get(`/StopPoint/${stopId}/Arrivals`)
-    .reply(500);
-}
