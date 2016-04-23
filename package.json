@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "mocha ./test/* --compilers js:babel-core/register --require ./test/support/test-env.js --no-colors"
+    "test": "mocha --recursive ./test/ --compilers js:babel-core/register --require ./test/support/test-env.js",
+    "test:watch": "mocha --watch --recursive ./test/ --compilers js:babel-core/register --require ./test/support/test-env.js "
   },
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-plugin-transform-regenerator": "^6.6.5",
+    "babel-preset-react-native": "^1.7.0",
     "chai": "^3.4.1",
     "core-js": "^2.2.1",
     "enzyme": "^2.1.0",
