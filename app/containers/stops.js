@@ -8,4 +8,4 @@ class Stops extends Component {
   }
 }
 
-export default connect(state => state)(Stops);
+export default connect(state => state.toJS())(Stops);
