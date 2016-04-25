@@ -9,6 +9,10 @@ global.React = require('react');
 var chai = require('chai');
 chai.should();
 
+// Add assertions for Immutable
+var chaiImmutable = require('chai-immutable');
+chai.use(chaiImmutable);
+
 // Adds utility for parametrized tests globally
 global.using = require('jasmine-data-provider');
 
