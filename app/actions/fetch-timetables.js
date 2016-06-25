@@ -1,7 +1,9 @@
 import updateStop from './update-stop';
+import config from '../config';
+import { forEach } from 'lodash';
 
 export default function() {
-  updateStop('940GZZLUNHT', 'Eastbound - Platform 2');
-  updateStop('940GZZLURGP', 'Southbound - Platform 2');
-  updateStop('940GZZLUOXC', 'Westbound - Platform 1');
+  forEach(config.stops, (stop, stopId) => {
+    updateStop(stopId, stop.lineId, stop.direction);
+  });
 }
