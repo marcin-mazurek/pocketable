@@ -8,15 +8,6 @@ Written in **React Native for Android**. Uses Redux as a data layer library.
 
 ![Demo](demo.gif)
 
-## TODO
-- [ ] Add error handling
-- [ ] Improve API data loading handling
-- [ ] Use Flow
-- [ ] Add an icon
-- [ ] Add project details to `package.json`
-- [ ] Integrate with Travis CI
-- [ ] Add some cool badges (e.g. code coverage)
-
 ## Available NPM tasks
 
 | Task | Description | Comment |
