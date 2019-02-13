@@ -2,7 +2,7 @@
 
 Personal pocket timetable for frequently used Tube stations in London, showing live departures from London TfL feeds.
 
-Written in **React Native for Android**. Uses Redux as a data layer library.
+Written in **React Native**. Uses Redux as a data layer library.
 
 ## DEMO
 
